@@ -1,10 +1,9 @@
-// Toggle visibility of chatbot
+
 function toggleChatbot() {
     const chatbotContainer = document.getElementById('chatbot-container');
     chatbotContainer.style.display = chatbotContainer.style.display === "none" ? "flex" : "none";
 }
 
-// Function to show typing indicator
 function showTyping() {
     const messages = document.getElementById('chatbot-messages');
     const typingIndicator = document.createElement('div');
@@ -18,7 +17,7 @@ function showTyping() {
     return typingIndicator;
 }
 
-// Function to add a message to the chat window
+
 function addMessage(sender, text) {
     const messages = document.getElementById('chatbot-messages');
     const message = document.createElement('div');
@@ -31,16 +30,15 @@ function addMessage(sender, text) {
     messages.scrollTop = messages.scrollHeight;
 }
 
-// Function to process user input
 function processInput() {
     const input = document.getElementById('userInput').value.trim();
-    document.getElementById('userInput').value = ''; // Clear input
+    document.getElementById('userInput').value = ''; 
 
     if (input === "") return;
 
     addMessage('user', input);
 
-    // Show typing indicator and add a delay before responding
+ 
     const typingIndicator = showTyping();
 
     setTimeout(() => {
@@ -73,20 +71,20 @@ function processInput() {
         } else if (input.match(/\b(home|main)\b/i)) {
             addMessage('bot', 'Sure! Taking you to the home page now – just click <a href="https://shanmukhsrinadh.github.io/Portfolio/#home">Home</a>.');
         } else if (input.match(/\b(about him|about shannu|about)\b/i)) {
-            addMessage('bot', 'You can learn all about Shanmukh in the <a href="https://shanmukhsrinadh.github.io/Portfolio/#about">About section</a>. Let me know if you have more questions!');
+            addMessage('bot', 'You can learn all about Shanmukh in the <a href="https://shanmukhsrinadh.github.io/Portfolio-1/#about">About section</a>. Let me know if you have more questions!');
         } else if (input.match(/\b(resume|his resume|his cv|CV)\b/i)) {
-            addMessage('bot', 'You can view Shanmukh\'s resume in the <a href="https://drive.google.com/file/d/1G1TQ3d8znA-lqlTkOMLv8TPNnVbtpVUB/view">Resume section</a>.');
+            addMessage('bot', 'You can view Shanmukh\'s resume in the <a href="https://drive.google.com/file/d/110rRY1vMHlaQ1OtlgQ3SDiiZzoQLUj6a/view">Resume section</a>.');
         } else if (input.match(/\b(skills|what does he know)\b/i)) {
-            addMessage('bot', 'Check out the <a href="https://shanmukhsrinadh.github.io/Portfolio/#about">Skills section</a> to see what Shanmukh knows!');
+            addMessage('bot', 'Check out the <a href="https://shanmukhsrinadh.github.io/Portfolio-1/#about">Skills section</a> to see what Shanmukh knows!');
         } else if (input.match(/\b(projects|works|work|project)\b/i)) {
-            addMessage('bot', 'Check out the <a href="https://shanmukhsrinadh.github.io/Portfolio/#work">Projects section</a> to see Shanmukh\'s amazing work.');
+            addMessage('bot', 'Check out the <a href="https://shanmukhsrinadh.github.io/Portfolio-1/#work">Projects section</a> to see Shanmukh\'s amazing work.');
         } else {
             addMessage('bot', "My AI knowledge is focused on the portfolio. Please phrase your questions or ask me something else related to the portfolio; I'll be happy to guide you through.");
         }
-    }, 1000); // 1-second typing delay for realism
+    }, 1000); 
 }
 
-// Function to check if Enter key is pressed
+
 function checkEnter(event) {
     if (event.key === "Enter") {
         processInput();
